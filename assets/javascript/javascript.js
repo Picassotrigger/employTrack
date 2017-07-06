@@ -1,50 +1,44 @@
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyATOZfqjena5ceI9a6Lh4rpUd5SlJIJ-Tk",
+    authDomain: "chart-1d648.firebaseapp.com",
+    databaseURL: "https://chart-1d648.firebaseio.com",
+    projectId: "chart-1d648",
+    storageBucket: "chart-1d648.appspot.com",
+    messagingSenderId: "626971278618"
+  };
+  firebase.initializeApp(config);
 
-	//this is for user input
-	
 
+ var database = firebase.database();
+
+
+ database.ref().on("value", function(snapshot) {
+
+     if(snapshot.child("person").exists){
+
+         //put code here to append and prepend the info. already on the server into the html
+      }
+
+ 
+
+
+ });
   
-$("button").on("click", function(){
+     $("button").on("click",function(){
+
+         var name = $("#name").val();
+          var role = $("#role").val();
+          var start = $("#startDate").val();
+          var rate = $("#rate").val();
+
+         database.ref().push({
+              name:name,
+              role:role,
+              start:start,
+              rate:rate
+
+         });
 
 
-	var searchTerm=$("#searchInput").val();
-	var yearBegin=$("#startYear").val();
-	var yearEnd=$("#endYear").val();
-	// var yearBeginCode=yearBegin+=0101
-	// var yearEndCode=yearEnd+=1230
-
-
-
-
-
-
-
-
-var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-		url += '?' + $.param({
-  		'api-key': "e85e5e2d0c1743efa02fc2149358728e",
-  		'q': searchTerm,
-  		'begin_date': yearBegin,
-  		'end_date': yearEnd
-		});
-
-
-$.ajax({
-  url: url,
-  method: 'GET',
-}).done(function(responce){
-
-
-	
-
-
-	
-console.log(responce);
-
-
-});
-
-
-
-
-
-});
+     });
