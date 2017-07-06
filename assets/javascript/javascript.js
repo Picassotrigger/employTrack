@@ -25,7 +25,7 @@
 
  });
   
-     $("button").on("click",function(){
+     $("#submit").on("click",function(){
 
          var name = $("#name").val();
           var role = $("#role").val();
