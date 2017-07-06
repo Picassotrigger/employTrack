@@ -6,12 +6,17 @@
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+	
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<title>Title</title>
+
+<!-- jQuery -->
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+	<title>Employee Tracker</title>
 
 	
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<title>NYT Search</title>
 
 </head>
 
@@ -36,9 +41,18 @@
   				<div class="panel-heading">
     				<h3 class="panel-title">Current Employees</h3>
   				</div>
-				<div class="panel-body" id="resultsBox">
-				
-				</div>
+				<table id="resultsBox" class="display" cellspacing="0" width="100%">
+        			<thead>
+           			 <tr>
+                		<th>Employee Name</th>
+		                <th>Role</th>
+		                <th>Start Date</th>
+		                <th>Months Worked</th>
+		                <th>Monthly Rate ($)</th>
+		                <th>Total Billed ($)</th>
+            		</tr>
+        		</thead>
+        </table>
 			</div>
 		</div>
 	</div>
@@ -79,7 +93,7 @@
 
 
 	</div>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
 	<script src="assets/javascript/javascript.js"></script>
 
 	<script src="./assets/javascript/moment.js"></script>

@@ -1,4 +1,33 @@
 
+var data =[[
+				"Joseph",
+				"System Architect",
+				"04/04/04",
+				"100",
+				"2000",
+				"1000000"
+				],
+			[
+				"Fred",
+				"Architect",
+				"06/06/06",
+				"100",
+				"2000",
+				"1000000"
+			]];
+
+
+
+$(document).ready(function() {
+    $("#resultsBox").DataTable({
+    	data: data
+    });
+    
+} );
+
+
+
+
 	//this is for user input
 	
 
@@ -14,7 +43,7 @@ $("button").on("click", function(){
 
 
 
-
+ 
 
 
 
