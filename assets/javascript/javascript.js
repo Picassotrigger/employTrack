@@ -20,11 +20,11 @@
          //put code here to append and prepend the info. already on the server into the html
       }
 
- 
+
 
 
  });
-  
+
      $("#submit").on("click",function(){
 
          var name = $("#name").val();
@@ -42,3 +42,9 @@
 
 
      });
+
+
+
+  function calcMonthsEmployed() {
+    // moment([]).diff(moment([2013, 9, 31]), 'months', true)
+  }
