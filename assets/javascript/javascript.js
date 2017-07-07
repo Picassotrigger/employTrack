@@ -1,4 +1,5 @@
 // Initialize Firebase
+
   var config = {
     apiKey: "AIzaSyATOZfqjena5ceI9a6Lh4rpUd5SlJIJ-Tk",
     authDomain: "chart-1d648.firebaseapp.com",
@@ -7,7 +8,7 @@
     storageBucket: "chart-1d648.appspot.com",
     messagingSenderId: "626971278618"
   };
-  firebase.initializeApp(config);
+firebase.initializeApp(config);
 
 
  var database = firebase.database();
@@ -18,6 +19,7 @@
      if(snapshot.child("person").exists){
 
          //put code here to append and prepend the info. already on the server into the html
+         console.log("stuff is here")
       }
 
  
