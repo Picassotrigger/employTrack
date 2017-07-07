@@ -26,7 +26,7 @@
 //==========================   FUNCTIONS   ===============================//
 
 function calcMonthsEmployed(start) {
-  var months = Math.floor(moment(new Date()).diff(moment(date,"MM/DD/YYYY"),'months',true));
+  var months = Math.floor(moment().diff(moment(date,"MM/DD/YYYY"),'months',true));
   monthsEmployed = months;
 }
 
