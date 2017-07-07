@@ -45,41 +45,38 @@
 
 
 function calcMonthsEmployed(start) {
-  var months = Math.floor(moment().diff(moment(date,"MM/DD/YYYY"),'months',true));
+  var months = Math.floor(moment().diff(moment(start,"MM/DD/YYYY"),'months',true));
   monthsEmployed = months;
+  return months;
 }
 
 function totalBilling(rate) {
   var total = monthsEmployed * rate;
-  totalBill = total;
+  console.log(total);
+  return total;
 }
 
 
   database = firebase.database();
 
-	$("#submit").on("click",function(){
 
-  		var name = $("#name").val().trim();
-  		var role = $("#role").val().trim();
-  		var start = $("#starDate").val().trim();
-  		var rate = $("#rate").val().trim();
 
-}
+
 
 //==========================   MAIN   ===============================//
-if(database.exists){
+// if(database.exists){
 
-      for (var i = 0; i < database.numChildren(); i++) {
+//       for (var i = 0; i < database.numChildren(); i++) {
 
-        //put code here to append and prepend the info. already on the server into the html
+//         //put code here to append and prepend the info. already on the server into the html
 
-      }
+//       }
 
-      console.log(database);
+//       console.log(database);
 
 
-         console.log("stuff is here");
-      }
+//          console.log("stuff is here");
+//       }
 
 
 database.ref().on("value", function(snapshot) {
@@ -94,8 +91,11 @@ database.ref().on("child_added", function(childSnapshot) {
   var temp= [];
   temp.push(childSnapshot.val().name);
   temp.push(childSnapshot.val().role);
-  temp.push(childSnapshot.val().startDate);
+  temp.push(childSnapshot.val().start);
+  temp.push(calcMonthsEmployed(childSnapshot.val().start));
+  
   temp.push(childSnapshot.val().rate);
+  temp.push(totalBilling(childSnapshot.val().rate));
   console.log(temp);
   data.push(temp);
   console.log(data);
@@ -109,13 +109,15 @@ database.ref().on("child_added", function(childSnapshot) {
 
 
 
-  $("#submit").on("click",function(){
+  $("button").on("click",function(){
 
 
       var name = $("#name").val().trim();
       var role = $("#role").val().trim();
-      var start = $("#starDate").val().trim();
+      var start = $("#startDate").val().trim();
       var rate = $("#rate").val().trim();
+
+      console.log(start);
 
       database.ref().push({
         name:name,
@@ -128,7 +130,7 @@ database.ref().on("child_added", function(childSnapshot) {
 
       });
 
-      console.log(database.child);
+    
 
 
     });
