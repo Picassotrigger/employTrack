@@ -41,7 +41,7 @@ $("button").on("click", function(){
 	var yearEnd=$("#endYear").val();
 	// var yearBeginCode=yearBegin+=0101
 	// var yearEndCode=yearEnd+=1230
-
+});
 
 
  
