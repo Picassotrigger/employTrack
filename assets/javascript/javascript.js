@@ -14,18 +14,37 @@ firebase.initializeApp(config);
  var database = firebase.database();
 
 
- database.ref().on("value", function(snapshot) {
+//checking to see if there is data there
 
-     if(snapshot.child("person").exists){
+if(snapshot.child().exists){
 
-         //put code here to append and prepend the info. already on the server into the html
+      for (var i = 0; i < database.childNum(); i++) {
+       
+        //put code here to append and prepend the info. already on the server into the html
+       
+      }
+
+         
          console.log("stuff is here")
       }
 
 
 
 
+
+//adding stuff to the form in real time if it changed on the server
+
+ database.ref().on("value", function(snapshot) {
+
+//on child added
+
+
  });
+
+
+
+
+//submitting children to the server
 
      $("#submit").on("click",function(){
 
