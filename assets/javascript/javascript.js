@@ -22,12 +22,12 @@ firebase.initializeApp(config);
          console.log("stuff is here")
       }
 
- 
+
 
 
  });
-  
-     $("button").on("click",function(){
+
+     $("#submit").on("click",function(){
 
          var name = $("#name").val();
           var role = $("#role").val();
@@ -44,3 +44,9 @@ firebase.initializeApp(config);
 
 
      });
+
+
+
+  function calcMonthsEmployed() {
+    // moment([]).diff(moment([2013, 9, 31]), 'months', true)
+  }
