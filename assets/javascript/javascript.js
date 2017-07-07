@@ -45,9 +45,18 @@
 
 
 
-  var dateStart = "02/26/2017";
+  // var dateStart = start;
+  var monthsEmployed = 0;
 
-  function calcMonthsEmployed(date) {
-    var monthsEmployed = Math.floor(moment(new Date()).diff(moment(date,"MM/DD/YYYY"),'months',true));
-    return monthsEmployed;
+  function calcMonthsEmployed(start) {
+    var months = Math.floor(moment(new Date()).diff(moment(date,"MM/DD/YYYY"),'months',true));
+    monthsEmployed = months;
+  }
+
+  // var monthlyRate = 10000;
+  var totalBill = 0;
+
+  function totalBilling(rate) {
+    var total = monthsEmployed * rate;
+    totalBill = total;
   }
