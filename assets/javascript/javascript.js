@@ -1,30 +1,25 @@
 
 
-var data =[[
-				"Joseph",
-				"System Architect",
-				"04/04/04",
-				"100",
-				"2000",
-				"1000000"
-				],
-			[
-				"Fred",
-				"Architect",
-				"06/06/06",
-				"100",
-				"2000",
-				"1000000"
-			]];
+// var data =[[
+// 				"Joseph",
+// 				"System Architect",
+// 				"04/04/04",
+// 				"100",
+// 				"2000",
+// 				"1000000"
+// 				],
+// 			[
+// 				"Fred",
+// 				"Architect",
+// 				"06/06/06",
+// 				"100",
+// 				"2000",
+// 				"1000000"
+// 			]];
 
 
 
-$(document).ready(function() {
-    $("#resultsBox").DataTable({
-    	data: data
-    });
-    
-} );
+
 
 
 
@@ -59,14 +54,14 @@ $("button").on("click", function(){
   };
   firebase.initializeApp(config);
 
-  database = firebase.database()
+  database = firebase.database();
 
 	$("button").on("click",function(){
 
-  		var name = $("#name").val()
-  		var role = $("#role").val()
-  		var start = $("#starDate").val()
-  		var rate = $("#rate").val()
+  		var name = $("#name").val();
+  		var role = $("#role").val();
+  		var start = $("#starDate").val();
+  		var rate = $("#rate").val();
 
   		database.ref().push({
   			name:name,
@@ -79,6 +74,21 @@ $("button").on("click", function(){
 
   	});
 
+database.ref().on("child_added", function(childSnapshot) {
+  var data = [[]];
+  data[0].push(childSnapshot.val().name);
+  data[0].push(childSnapshot.val().role);
+  data[0].push(childSnapshot.val().startDate);
+  data[0].push(childSnapshot.val().rate);
+  
+  console.log(data);
+    $("#resultsBox").DataTable({
+      data: data
+    });
+});    
+// }, function(errorObject) {
+//       console.log("Errors handled: " + errorObject.code);
+//     });
 
 
   function calcMonthsEmployed() {
