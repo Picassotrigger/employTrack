@@ -1,21 +1,21 @@
 
 
-// var data =[[
-// 				"Joseph",
-// 				"System Architect",
-// 				"04/04/04",
-// 				"100",
-// 				"2000",
-// 				"1000000"
-// 				],
-// 			[
-// 				"Fred",
-// 				"Architect",
-// 				"06/06/06",
-// 				"100",
-// 				"2000",
-// 				"1000000"
-// 			]];
+var data =[[
+				"Joseph",
+				"System Architect",
+				"04/04/04",
+				"100",
+				"2000",
+				"1000000"
+				],
+			[
+				"Fred",
+				"Architect",
+				"06/06/06",
+				"100",
+				"2000",
+				"1000000"
+			]];
 
 
 
@@ -28,15 +28,7 @@
 	
 
   
-$("button").on("click", function(){
 
-
-	var searchTerm=$("#searchInput").val();
-	var yearBegin=$("#startYear").val();
-	var yearEnd=$("#endYear").val();
-	// var yearBeginCode=yearBegin+=0101
-	// var yearEndCode=yearEnd+=1230
-});
 
 
  
@@ -56,12 +48,12 @@ $("button").on("click", function(){
 
   database = firebase.database();
 
-	$("button").on("click",function(){
+	$("#submit").on("click",function(){
 
-  		var name = $("#name").val();
-  		var role = $("#role").val();
-  		var start = $("#starDate").val();
-  		var rate = $("#rate").val();
+  		var name = $("#name").val().trim();
+  		var role = $("#role").val().trim();
+  		var start = $("#starDate").val().trim();
+  		var rate = $("#rate").val().trim();
 
   		database.ref().push({
   			name:name,
@@ -75,20 +67,21 @@ $("button").on("click", function(){
   	});
 
 database.ref().on("child_added", function(childSnapshot) {
-  var data = [[]];
-  data[0].push(childSnapshot.val().name);
-  data[0].push(childSnapshot.val().role);
-  data[0].push(childSnapshot.val().startDate);
-  data[0].push(childSnapshot.val().rate);
   
+  var temp= [];
+  temp.push(childSnapshot.val().name);
+  temp.push(childSnapshot.val().role);
+  temp.push(childSnapshot.val().startDate);
+  temp.push(childSnapshot.val().rate);
+  console.log(temp);
+  data.push(temp);
   console.log(data);
+
+  
     $("#resultsBox").DataTable({
       data: data
     });
 });    
-// }, function(errorObject) {
-//       console.log("Errors handled: " + errorObject.code);
-//     });
 
 
   function calcMonthsEmployed() {
