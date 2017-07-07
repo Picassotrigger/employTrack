@@ -43,16 +43,11 @@
 
      });
 
-// var monthsEmployed = moment([]).diff(moment([2013, 9, 31]), 'months', true);
 
-// Math.floor(moment(new Date()).diff(moment("02/26/1978","MM/DD/YYYY"),'years',true));
 
-var dateStart = "02/26/2017";
+  var dateStart = "02/26/2017";
 
   function calcMonthsEmployed(date) {
-    // moment([]).diff(moment([2013, 9, 31]), 'months', true)
-
     var monthsEmployed = Math.floor(moment(new Date()).diff(moment(date,"MM/DD/YYYY"),'months',true));
-    // var monthsEmployed = moment([]).diff(moment([2013, 9, 31]), 'months', true);
     return monthsEmployed;
   }
