@@ -47,6 +47,8 @@ $("button").on("click", function(){
  
 
 // Initialize Firebase
+
+  // Initialize Firebase
   var config = {
     apiKey: "AIzaSyATOZfqjena5ceI9a6Lh4rpUd5SlJIJ-Tk",
     authDomain: "chart-1d648.firebaseapp.com",
@@ -57,37 +59,28 @@ $("button").on("click", function(){
   };
   firebase.initializeApp(config);
 
+  database = firebase.database()
 
- var database = firebase.database();
+	$("button").on("click",function(){
 
+  		var name = $("#name").val()
+  		var role = $("#role").val()
+  		var start = $("#starDate").val()
+  		var rate = $("#rate").val()
 
+  		database.ref().push({
+  			name:name,
+  			role:role,
+  			start:start,
+  			rate:rate
 
- database.ref().on("value", function(snapshot) {
-
-     if(snapshot.child("person").exists){
-
-         //put code here to append and prepend the info. already on the server into the html
-      }
-
- 
-
-
- });
-  
-     $("#submit").on("click",function(){
-
-         var name = $("#name").val();
-          var role = $("#role").val();
-          var start = $("#startDate").val();
-          var rate = $("#rate").val();
-
-         database.ref().push({
-              name:name,
-              role:role,
-              start:start,
-              rate:rate
-
-         });
+  		});
 
 
-     });
+  	});
+
+
+
+  function calcMonthsEmployed() {
+    // moment([]).diff(moment([2013, 9, 31]), 'months', true)
+  }
